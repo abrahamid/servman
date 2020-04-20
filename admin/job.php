@@ -89,7 +89,7 @@ if(isset($_POST["cari"])){
         <th>no</th>
         <th>resi</th>
         <th>nama</th>
-        <th>alamat / kantor</th>
+        <th>alamat / kantor / personal</th>
         <th>nomer hp</th>
         <th>seri</th>
         <th>kerusakan</th>
