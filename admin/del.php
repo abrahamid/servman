@@ -6,7 +6,6 @@ if(!isset($_SESSION["login"])){
 include 'functions.php';
 $resi=$_GET['resi'];
 
-$target = "img/".$resi.".png";
 
 if(hapus($resi)>0){
   echo "<script>alert('data berhasil dihapus'); document.location=href='job.php'</script>";
