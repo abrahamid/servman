@@ -35,3 +35,6 @@ label{
   	border-radius: 5px;
   	padding: 10px 20px;
 }
+td,th{
+  text-transform: capitalize; 
+}
