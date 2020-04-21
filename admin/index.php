@@ -48,7 +48,7 @@ if( tambah($_POST)>0){
         <input type="text" name="seri" class="form_input" id="seri" placeholder="seri" autocomplete="off" required>
 
         <label for="kerusakan">Kerusakan :</label>
-        <input type="text" name="kerusakan" class="form_input" id="kerusakan" placeholder="kerusakan" value="" autocomplete="off" required>
+        <textarea name="kerusakan" placeholder="kerusakan" autocomplete="off" required></textarea>
         
         <!-- penerima diisi sesuai nama username -->
         <input type="hidden" name="penerima" id="penerima" value="<?= $_SESSION['name']; ?>">
