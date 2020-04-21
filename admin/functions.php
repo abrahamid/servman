@@ -1,6 +1,8 @@
 <?php
 //koneksi ke database silahkan diubah sesua database masing masing
 $koneksi = mysqli_connect("localhost","SQL USERNAME","SQL PASSWORD","SQL DATABASE");
+//timezone
+date_default_timezone_set("Asia/Bangkok");
 
 //query sederhana
 function query($query){
@@ -24,6 +26,7 @@ function tambah($data){
   $seri=htmlspecialchars($data['seri']);
   $kerusakan=htmlspecialchars($data['kerusakan']);
   $penerima=htmlspecialchars($data['penerima']);
+  $tanggalmasuk = date("Y-m-d H:i:s");
 
   $urlresi = "http://localhost/?resi=$resi";
 
@@ -43,7 +46,7 @@ function tambah($data){
 
   QRcode::png($codeContents, $tempdir.$namaFile, $level, $UkuranPixel, $UkuranFrame);
   //membuat isi database
-  $create = "INSERT INTO service VALUES (NULL, '$resi', '$nama', '$alamat', '$nomerhp', '$seri', '$kerusakan', CURRENT_TIMESTAMP, '$penerima', 'antri', NULL, NULL,'$namaFile');";
+  $create = "INSERT INTO service VALUES (NULL, '$resi', '$nama', '$alamat', '$nomerhp', '$seri', '$kerusakan', $tanggalmasuk', '$penerima', 'antri', NULL, NULL,'$namaFile');";
   mysqli_query($koneksi,$create);
 
   return mysqli_affected_rows($koneksi);
