@@ -13,9 +13,9 @@ if(isset($_POST["submit"])){
 
 //ALERT GAGAL ATA BERHASIL
 if( tambah($_POST)>0){
-  echo "<script>alert('data $nama berhasil ditambahkan');document.location.href='job.php';</script>";
+  echo "<script>alert('data berhasil ditambahkan');document.location.href='job.php';</script>";
 }else{
-  echo "<script>alert('data $nama gagal ditambahkan');</script>";
+  echo mysqli_error($koneksi);
 }
 
 }
@@ -49,13 +49,10 @@ if( tambah($_POST)>0){
 
         <label for="kerusakan">Kerusakan :</label>
         <input type="text" name="kerusakan" class="form_input" id="kerusakan" placeholder="kerusakan" value="" autocomplete="off" required>
-
-        <label for="penerima">penerima :</label>
-        <select name="penerima">
-          <option value="ABRAHAM">ABRAHAM</option>
-          <option value="GIYANTO">GIYANTO</option>
-          <option value="IBRAHIM">IBRAHIM</option>
-        </select>
+        
+        <!-- penerima diisi sesuai nama username -->
+        <input type="hidden" name="penerima" id="penerima" value="<?= $_SESSION['name']; ?>">
+        
         <button type="submit" name="submit" class="login_button">simpan</button>
 
       </form>
