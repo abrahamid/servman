@@ -38,6 +38,7 @@ if(isset($_POST["login"])){
 
             //set session
             $_SESSION["login"] = true ;
+            $_SESSION["name"]   = $username;
             
             //cek remember me
             if(isset($_POST["remember"])){
