@@ -50,7 +50,7 @@ if(isset($_POST["submit"])){
         <input type="text" name="seri" class="form_input" id="seri" placeholder="seri" autocomplete="off" value="<?= $data["seri"];?>" >
 
         <label for="kerusakan">Kerusakan</label>
-        <input type="text" name="kerusakan" class="form_input" id="kerusakan" placeholder="kerusakan" autocomplete="off" value="<?= $data["kerusakan"];?>" >
+        <textarea name="kerusakan" id="kerusakan" placeholder="kerusakan" autocomplete="off"><?= $data["kerusakan"];?></textarea>
 
         <label for="tanggal masuk">tanggal masuk</label>
         <input type="text" name="tanggal_masuk" class="form_input" id="tanggal masuk" placeholder="tanggal masuk" autocomplete="off" value="<?= $data["tanggalmasuk"];?>" disabled>
