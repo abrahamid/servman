@@ -15,6 +15,7 @@ if(isset($_COOKIE["jumlah"])  && isset($_COOKIE['wkwkwk'])){
     //cek kesamaan cookie dan username
     if($wkwkwk === hash('sha256', $row['username'])){
         $_SESSION['login'] = true;
+        $_SESSION["name"]   = $row['username'];
     }
 }
 
