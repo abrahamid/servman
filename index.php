@@ -21,10 +21,11 @@
 <?php
   require 'admin/functions.php';
 
-  $resi = $_GET['resi'];
-  $d = query("SELECT * FROM service WHERE resi=$resi")[0];
+  
   ?>
   <?php if(isset($_GET["resi"])):?>
+  <?php $resi = $_GET['resi'];
+  $d = query("SELECT * FROM service WHERE resi=$resi")[0]; ?>
     <table border="1px">
     <tr><td>resi</td><td><?php echo $d['resi'];?></td></tr>
     <tr><td>nama</td><td><?php echo $d['nama'];?></td></tr>
