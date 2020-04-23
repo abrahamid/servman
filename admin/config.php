@@ -1,3 +1,4 @@
 <?php
-$koneksi = mysqli_connect("localhost","root","Reni1234.","coba");
+//sesuaikan database masing masing
+$koneksi = mysqli_connect("localhost","root","password","database");
 ?>
