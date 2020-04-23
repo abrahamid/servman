@@ -1,6 +1,6 @@
 <?php
 //koneksi ke database silahkan diubah sesua database masing masing
-$koneksi = mysqli_connect("localhost","SQL USERNAME","SQL PASSWORD","SQL DATABASE");
+require 'config.php';
 //timezone
 date_default_timezone_set("Asia/Bangkok");
 
