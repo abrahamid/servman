@@ -31,6 +31,9 @@ if($status === 'all'){
 if(isset($_POST["cari"])){
   $service = cari($_POST["keyword"]);
 }
+
+//total pendapatan
+$totalBiaya = query("SELECT SUM(biaya) FROM service WHERE status='selesai'")[0];
 ?>
 
 <!DOCTYPE html>
@@ -145,6 +148,12 @@ if(isset($_POST["cari"])){
       </tr>
       <?php $no++ ?>
       <?php endforeach; ?>
+      <?php if($status === 'selesai'): ?>
+      <tr>
+         <td colspan="11">Total Pendapatan</td>
+         <td colspan="3"><?= rupiah($totalBiaya['SUM(biaya)']);?></td>
+      </tr>
+      <?php endif; ?>
     </tbody>
     </table>
     </div>
