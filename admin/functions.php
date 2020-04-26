@@ -44,7 +44,7 @@ function tambah($data){
 
   QRcode::png($codeContents, $tempdir.$namaFile, $level, $UkuranPixel, $UkuranFrame);
   //membuat isi database
-  $create = "INSERT INTO service VALUES (NULL, '$resi', '$nama', '$alamat', '$nomerhp', '$seri', '$kerusakan', '$tanggalmasuk', '$penerima', 'antri', 0, NULL,'$namaFile');";
+  $create = "INSERT INTO service VALUES (NULL, '$resi', '$nama', '$alamat', '$nomerhp', '$seri', '$kerusakan', '$tanggalmasuk', '$penerima', 'antri','$tanggalmasuk', 0, NULL,'$namaFile');";
   mysqli_query($koneksi,$create);
 
   return mysqli_affected_rows($koneksi);
