@@ -70,6 +70,7 @@ if(isset($_POST["cari"])){
             <a class="dropdown-item" href="?status=antri">Antri</a>
             <a class="dropdown-item" href="?status=proses">Proses</a>
             <a class="dropdown-item" href="?status=selesai">Selesai</a>
+            <a class="dropdown-item" href="?status=jadi">Sudah Jadi Belum Diambil</a>
             <a class="dropdown-item" href="?status=gagal">Gagal</a>
             <a class="dropdown-item" href="?status=cancel">Cancel</a>
         </div>
@@ -107,6 +108,7 @@ if(isset($_POST["cari"])){
         <th>Tanggal Masuk</th>
         <th>Penerima</th>
         <th>Status</th>
+        <th>Last Edit</th>
         <th>Biaya</th>
         <th>Catatan</th>
         <th>Update</th>
@@ -125,7 +127,15 @@ if(isset($_POST["cari"])){
         <td><?= $data['kerusakan']; ?></td>
         <td><?= $data['tanggalmasuk']; ?></td>
         <td><?= $data['penerima']; ?></td>
-        <td><?= $data['status']; ?></td>
+        <td><?php
+         if($data['status']=== 'jadi'){
+           echo "Sudah Jadi Belum Diambil";
+         }else{
+           echo $data['status'];
+         }
+         
+         ?></td>
+        <td><?= $data['edit'];?></td>
         <td><?= rupiah($data['biaya']); ?></td>
         <td><?= $data['admin']; ?></td>
         <td>
