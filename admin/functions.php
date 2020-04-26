@@ -1,9 +1,7 @@
 <?php
 //koneksi ke database silahkan diubah sesua database masing masing
 require 'config.php';
-//timezone
 date_default_timezone_set("Asia/Bangkok");
-
 //query sederhana
 function query($query){
   global $koneksi;
@@ -25,8 +23,8 @@ function tambah($data){
   $nomerhp=htmlspecialchars($data['nomerhp']);
   $seri=htmlspecialchars($data['seri']);
   $kerusakan=htmlspecialchars($data['kerusakan']);
-  $penerima=htmlspecialchars($data['penerima']);
-  $tanggalmasuk = date("Y-m-d H:i:s");
+  $penerima=$_SESSION['name'];
+  $tanggalmasuk=date("Y-m-d H:i:s");
 
   $urlresi = "http://localhost/?resi=$resi";
 
@@ -46,7 +44,7 @@ function tambah($data){
 
   QRcode::png($codeContents, $tempdir.$namaFile, $level, $UkuranPixel, $UkuranFrame);
   //membuat isi database
-  $create = "INSERT INTO service VALUES (NULL, '$resi', '$nama', '$alamat', '$nomerhp', '$seri', '$kerusakan', $tanggalmasuk', '$penerima', 'antri', 0, NULL,'$namaFile');";
+  $create = "INSERT INTO service VALUES (NULL, '$resi', '$nama', '$alamat', '$nomerhp', '$seri', '$kerusakan', '$tanggalmasuk', '$penerima', 'antri', 0, NULL,'$namaFile');";
   mysqli_query($koneksi,$create);
 
   return mysqli_affected_rows($koneksi);
@@ -66,19 +64,15 @@ function hapus($resi){
 function ubah($data){
   global $koneksi;
   $id = $data['id']; //1
-  $resi=$data['resi'];//2
   $nama=$data['nama'];//3
   $alamat=$data['alamat'];//4
   $nomerhp=$data['nomerhp'];//5
   $seri=$data['seri'];//6
   $kerusakan=$data['kerusakan'];//7
-  $tanggalmasuk=$data['tanggal_masuk'];//8
-  $penerima=$data['penerima'];//9
   $status=$data['status'];//10
   $biaya=$data['biaya'];//11
   $admin=$data['admin'];//12
-  $qr=$data['qr'];//13
-
+  
   //$query ="UPDATE service SET resi = '$resi', nama = '$nama', alamat = '$alamat', hp = '$nomerhp', seri = '$seri', kerusakan = '$kerusakan', tanggalmasuk = '$tanggalmasuk', penerima = '$penerima', status = '$status', biaya = '$biaya', admin = '$admin', qr = '$qr' WHERE service.id = $id";
   $query ="UPDATE `service` SET `nama` = '$nama', `alamat` = '$alamat', `hp` = '$nomerhp', `seri` = '$seri', `kerusakan` = '$kerusakan', `status` = '$status', `biaya` = '$biaya', `admin` = '$admin' WHERE `service`.`id` = $id ";
   mysqli_query($koneksi,$query);
