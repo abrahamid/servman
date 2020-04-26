@@ -72,9 +72,10 @@ function ubah($data){
   $status=$data['status'];//10
   $biaya=$data['biaya'];//11
   $admin=$data['admin'];//12
+  $edit=date("Y-m-d H:i:s");
   
   //$query ="UPDATE service SET resi = '$resi', nama = '$nama', alamat = '$alamat', hp = '$nomerhp', seri = '$seri', kerusakan = '$kerusakan', tanggalmasuk = '$tanggalmasuk', penerima = '$penerima', status = '$status', biaya = '$biaya', admin = '$admin', qr = '$qr' WHERE service.id = $id";
-  $query ="UPDATE `service` SET `nama` = '$nama', `alamat` = '$alamat', `hp` = '$nomerhp', `seri` = '$seri', `kerusakan` = '$kerusakan', `status` = '$status', `biaya` = '$biaya', `admin` = '$admin' WHERE `service`.`id` = $id ";
+  $query ="UPDATE `service` SET `nama` = '$nama', `alamat` = '$alamat', `hp` = '$nomerhp', `seri` = '$seri', `kerusakan` = '$kerusakan', `status` = '$status',`edit`='$edit', `biaya` = '$biaya', `admin` = '$admin' WHERE `service`.`id` = $id ";
   mysqli_query($koneksi,$query);
 
   return mysqli_affected_rows($koneksi);
