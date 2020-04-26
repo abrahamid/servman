@@ -73,6 +73,7 @@ if(isset($_POST["batal"])){
           <option value="antri">Antri</option>
           <option value="proses">Proses</option>
           <option value="selesai">Selesai</option>
+          <option value="jadi">Sudah Jadi Belum Diambil</option>
           <option value="gagal">Gagal</option>
           <option value="cancel">Cancel</option>
         </select>
@@ -80,7 +81,7 @@ if(isset($_POST["batal"])){
         <label for="biaya">biaya</label>
         <input type="text" name="biaya" class="form_input" id="biaya" placeholder="biaya" autocomplete="off" value="<?= $data["biaya"];?>" >
 
-        <label for="admin">admin</label>
+        <label for="admin">catatan</label>
         <input type="text" name="admin" class="form_input" id="admin" placeholder="catatan admin" autocomplete="off" value="<?= $data["admin"];?>" >
 
         
